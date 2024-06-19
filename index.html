@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/css/meyawo.css">
     <!-- Custom styles for certificates -->
     <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://trusted.cdn.com; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -35,7 +37,6 @@
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
                 </li>
-                
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
                 <div class="hamburger-box">
@@ -99,7 +100,7 @@
                 <img class="pricing-card-icon" src="assets/imgs/certificate2.jpg" alt="Certificate 2">
             </div>
             <div class="pricing-card-body">
-                <h6 class="pricing-card-title">Fundamenals of Cryptography</h6>
+                <h6 class="pricing-card-title">Fundamentals of Cryptography</h6>
                 <div class="pricing-card-list">
                     <p>Date: June 15, 2024</p>
                     <p>Issuer: Infosys</p>
@@ -135,7 +136,7 @@
                 <img class="pricing-card-icon" src="assets/imgs/certificate5.jpg" alt="Certificate 5">
             </div>
             <div class="pricing-card-body">
-                <h6 class="pricing-card-title">Fundamenals of information security</h6>
+                <h6 class="pricing-card-title">Fundamentals of information security</h6>
                 <div class="pricing-card-list">
                     <p>Date: June 11, 2024</p>
                     <p>Issuer: Infosys</p>
@@ -168,9 +169,6 @@
     <img class="modal-content" id="modalImage">
 </div>
 
-
-
-
     <!-- About You Section -->
     <section class="section" id="about-you">
         <div class="container text-center">
@@ -181,14 +179,13 @@
             </div>
         </div> <!-- end of container -->
     </section> <!-- end of About You Section -->
-    
 
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container text-center">
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="/submit_form" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <input type="text" size="50" class="form-control" placeholder="Your Name" required>
@@ -215,18 +212,17 @@
     </div><!-- end of page footer -->
     
     <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-
     <!-- custom js -->
     <script src="assets/js/meyawo.js"></script>
 
     <!-- JavaScript for modal and carousel -->
     <script>
-        // JavaScript for closing the modal when clicking on the X button
         document.getElementById("closeModal").addEventListener("click", function() {
-        closeModal();
+            closeModal();
         });
+
         document.addEventListener("DOMContentLoaded", function() {
             var closeModalButton = document.getElementById("closeModal");
             if (closeModalButton) {
@@ -260,7 +256,6 @@
         document.addEventListener("DOMContentLoaded", function() {
             var viewerInfo = document.getElementById("viewer-info");
     
-            // Function to fetch IP address and location
             function fetchViewerInfo() {
                 fetch('https://api.ipify.org?format=json')
                     .then(response => response.json())
@@ -283,10 +278,9 @@
                     });
             }
     
-            fetchViewerInfo(); // Call function to fetch viewer information on page load
+            fetchViewerInfo();
         });
     
-        // JavaScript for the carousel functionality
         var certificateIndex = 0;
         var certificatesPerPage = 3;
         var totalCertificates = document.getElementsByClassName("pricing-card").length;
@@ -315,7 +309,6 @@
             showCertificates(certificateIndex);
         }
     
-        // Initially show the first set of certificates
         showCertificates(certificateIndex);
     </script>
 </body>
